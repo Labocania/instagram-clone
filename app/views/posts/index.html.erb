@@ -1,2 +1,6 @@
-<h1>Instagram-Clone</h1>
-<p>Instagram clone tutorial, index page.</p>
+<% @posts.each do |post| %>
+    <%= link_to (image_tag post.image.url(:medium)), post_path(post) %>
+    <p class="caption"><%= post.caption %></p>
+<% end %>
+
+
