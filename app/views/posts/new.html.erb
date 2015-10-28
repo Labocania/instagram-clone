@@ -1,0 +1,6 @@
+<h2>New Post:</h2>
+<%= simple_form_for @post  do |f| %>
+  <%= f.input :image, label: "Select an image:" %>
+  <%= f.input :caption %>
+  <%= f.button :submit %>
+<% end %>
