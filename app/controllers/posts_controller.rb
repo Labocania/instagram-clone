@@ -10,9 +10,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    if @post = Post.create(post_params)
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:success] = "Post created."
       redirect_to posts_path
     else
+      flash.now[:alert] = "Post not created."
       render :new
     end
   end
@@ -25,8 +28,10 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      flash[:success] = "Post updated."
       redirect_to @post
     else
+      flash.now[:alert] = "Post not updated."
       render :edit
     end
   end
