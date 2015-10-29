@@ -1,23 +1,12 @@
-<div class="form-wrapper">
-  <%= simple_form_for @post, html: { class: 'form-horizontal', multipart: true }  do |f| %>
-    <div class="posts-wrapper row">
+<div class="posts-wrapper row">
       <div class="post">
         <div class="image center-block">
           <%= image_tag @post.image(:medium) %>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.input :image, label: "Select a new image:" %>
-    </div>
-    <div class="form-group text-center">
-      <%= f.input :caption, label: "New caption" %>
-    </div>
-    <div class="form-group text-center">
-      <%= f.button :submit, class: 'btn-success' %>
-    </div>
-  <% end %>
-</div>
+    
+<%= render "form" %>
 
 <div class="text-center edit-links">
   <%= link_to "Back", post_path(@post) %>
