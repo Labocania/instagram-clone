@@ -1,0 +1,26 @@
+<div class="form-wrapper">
+  <%= simple_form_for @post, html: { class: 'form-horizontal', multipart: true }  do |f| %>
+    <div class="posts-wrapper row">
+      <div class="post">
+        <div class="image center-block">
+          <%= image_tag @post.image(:medium) %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.input :image, label: "Select a new image:" %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.input :caption, label: "New caption" %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center edit-links">
+  <%= link_to "Back", post_path(@post) %>
+  |
+  <%= link_to "Delete post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
