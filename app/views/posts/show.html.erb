@@ -1,18 +1,4 @@
-<div class="posts-wrapper row">
-  <div class="post">
-    <div class="post-head">
-      <div class="name">
-        <%= @post.user.user_name %>
-      </div>
-    </div>
-    <div class="image center-block">
-      <%= image_tag @post.image(:medium) %>
-    </div>
-    <p class="caption">
-      <%= @post.caption %>
-    </p>
-  </div>
-</div>
+<%= render 'post', post: @post %>
 <div class="text-center edit-links">
   <%= link_to "Back", posts_path %>
   <% if current_user.id == @post.user.id %>
