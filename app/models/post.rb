@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   has_attached_file :image, styles: { :medium => "640x" }
   validates :image, presence: true
-  validates :caption, presence: true
+  validates :caption, presence: true, length: { minimum: 3, maximum: 300 }
   validates :user_id, presence: true
   belongs_to :user
   has_many :comments, dependent: :destroy

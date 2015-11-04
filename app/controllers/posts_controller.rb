@@ -21,6 +21,7 @@ class PostsController < ApplicationController
       flash.now[:alert] = "Post not created."
       render :new
     end
+    
   end
 
   def show
