@@ -35,6 +35,8 @@ gem "bootstrap-sass", "~> 3.3.5"
 # Devise authentication
 gem 'devise'
 
+# Kaminari for pagination
+gem 'kaminari', '~> 0.16.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
