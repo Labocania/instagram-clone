@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     
     if @comment.user_id == current_user.id
-      @comment.destroy
+      @comment.delete
       flash[:success] = "Comment deleted."
       redirect_to root_path
     end

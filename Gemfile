@@ -46,9 +46,18 @@ gem 'kaminari', '~> 0.16.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'factory_girl_rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  # Rspec for testing
+  gem 'rspec-rails', "~> 2.14"
+end
+
+group :test do
+  gem 'capybara', "2.1.0"
 end
 
 group :development do
