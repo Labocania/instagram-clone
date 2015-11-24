@@ -3,10 +3,7 @@ require 'spec_helper'
 feature 'Creating posts' do
   background do
     user = create :user
-    visit '/'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    sign_in_with user
   end
   
   scenario 'can create a new post' do
@@ -16,6 +13,7 @@ feature 'Creating posts' do
     click_button 'Create Post'
     page.has_content? "nom nom nom"
     page.has_css? "img[src*='coffee']"
+    page.has_content? "Arnie"
   end
   
   scenario 'a post needs an image to save' do

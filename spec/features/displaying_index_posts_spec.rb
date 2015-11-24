@@ -6,10 +6,7 @@ feature "Displaying posts" do
     post_two = create(:post_two, caption: "This is the second post")
     user = create :user
     
-    visit "/"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    sign_in_with user
   end
   
   scenario "The index lists all posts" do

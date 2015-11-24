@@ -16,4 +16,13 @@ FactoryGirl.define do
     user_id 1
     id 2
   end
+  
+  factory :post_three, class: Post do
+    caption 'bla bla bla'
+    image_file_name { 'coffe.png' }
+    image_content_type { 'image/png' }
+    image_file_size { '84' }
+    user_id 2
+    id 3
+  end
 end

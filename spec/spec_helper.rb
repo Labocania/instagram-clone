@@ -17,7 +17,18 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+module AuthHelpers
+  def sign_in_with(user)
+    visit '/'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+  end
+end
+
 RSpec.configure do |config|
+  config.include AuthHelpers, type: :feature
+  
   # Factory girl methods
   config.include FactoryGirl::Syntax::Methods
   
