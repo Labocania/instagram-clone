@@ -1,0 +1,29 @@
+<div class="posts-wrapper">
+  <div class="post">
+    <div class="post-body">
+      <div class="image-wrap">
+        <%= image_tag @user.avatar.url(:medium), id: 'image-preview', class: 'img-responsive img-circle profile-image' if @user.avatar.exists? %>
+        <%= form_for @user, url: {action: "update" }, html: { multipart: true }  do |f| %>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="img-circle">
+                <%= image_tag "placeholder.jpg", id: 'image-preview', class: 'img-responsive img-circle profile' %>
+                <%= f.file_field :avatar, onChange: 'loadFile(event)' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group text-center">
+                <%= f.text_area :bio, label: false, placeholder: "Bio", rows: 6 %>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <%= f.submit "Update Profile", class: 'btn-success btn-block' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

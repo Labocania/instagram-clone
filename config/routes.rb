@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   root "posts#index"
   resources :posts do
       resources :comments
   end
+  get ':user_name', to: 'profiles#show', as: :profile
+  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
+  patch ':user_name/edit', to: 'profiles#update', as: :update_profile
 =begin
                   Prefix Verb   URI Pattern                                 Controller#Action
+           profiles_show GET    /profiles/show(.:format)                    profiles#show
         new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
             user_session POST   /users/sign_in(.:format)                    devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
@@ -38,5 +44,7 @@ cancel_user_registration GET    /users/cancel(.:format)                     regi
                          PATCH  /posts/:id(.:format)                        posts#update
                          PUT    /posts/:id(.:format)                        posts#update
                          DELETE /posts/:id(.:format)                        posts#destroy
+                 profile GET    /:user_name(.:format)                       profiles#show
+            edit_profile GET    /:user_name/edit(.:format)                  profiles#edit
 =end
 end
