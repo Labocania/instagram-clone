@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root "posts#index"
   resources :posts do
       resources :comments
+      member do
+          get 'like'
+      end
   end
   get ':user_name', to: 'profiles#show', as: :profile
   get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
@@ -36,6 +39,7 @@ cancel_user_registration GET    /users/cancel(.:format)                     regi
                          PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
                          PUT    /posts/:post_id/comments/:id(.:format)      comments#update
                          DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+               like_post GET    /posts/:id/like(.:format)                   posts#like
                    posts GET    /posts(.:format)                            posts#index
                          POST   /posts(.:format)                            posts#create
                 new_post GET    /posts/new(.:format)                        posts#new
@@ -46,5 +50,6 @@ cancel_user_registration GET    /users/cancel(.:format)                     regi
                          DELETE /posts/:id(.:format)                        posts#destroy
                  profile GET    /:user_name(.:format)                       profiles#show
             edit_profile GET    /:user_name/edit(.:format)                  profiles#edit
+          update_profile PATCH  /:user_name/edit(.:format)                  profiles#update
 =end
 end

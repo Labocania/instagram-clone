@@ -2,11 +2,11 @@
 @import "bootstrap";
 
 
-html {
+html {  
   height: 100%;
 }
 
-body {
+body {  
   height: 100%;
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -146,7 +146,7 @@ body {
 .registration-bg {
   padding-top: 4em;
   height: 100%;
-  background-image: image-url('photo-1441448770220-76743f9e6af6.jpg');
+  background-image: image-url('regbackg.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -156,7 +156,7 @@ body {
 .login-bg {
   padding-top: 4em;
   height: 100%;
-  background-image: image-url('photo-1428999418909-363f8e091c50.jpg');
+  background-image: image-url('loginbg.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -181,13 +181,14 @@ body {
 }
 
 #image-preview {
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 #post_image {
   padding: 1em;
   margin: 0px auto;
 }
+
 
 #paginator {
   color: #4090DB;
@@ -215,8 +216,18 @@ body {
   }
 }
 
-#user_avatar {
-  margin: 20px auto;
+.comments {
+  .paginator {
+    margin: 0.5em;
+    .more-comments {
+      color: #A5A7AA;
+    }
+  }
+}
+
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
 }
 
 .profile-header {
@@ -245,4 +256,18 @@ body {
 
 .profile-bio {
   margin-top: 20px;
+}
+
+#user_bio {
+  border: 1px solid gray;
+}
+
+#user_avatar {
+  padding: 1em;
+  margin: 0px auto;
+}
+
+.likes {
+  margin-top: 20px;
+  margin-bottom: 7px;
 }
