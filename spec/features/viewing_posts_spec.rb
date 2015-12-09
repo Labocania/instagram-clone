@@ -9,7 +9,7 @@ feature "viewing individual posts" do
   end
   
   scenario "can click and view a single post from the index" do
-    find(:xpath, "//a[contains(@href, 'posts/1')]").click
+    find(:xpath, "//a[contains(@href, 'posts/1')]", match: :first).click
     expect(page.current_path).to eq(post_path(1))
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :comments
       member do
           get 'like'
+          get 'unlike'
       end
   end
   get ':user_name', to: 'profiles#show', as: :profile
@@ -40,6 +41,7 @@ cancel_user_registration GET    /users/cancel(.:format)                     regi
                          PUT    /posts/:post_id/comments/:id(.:format)      comments#update
                          DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
                like_post GET    /posts/:id/like(.:format)                   posts#like
+             unlike_post GET    /posts/:id/unlike(.:format)                 posts#unlike
                    posts GET    /posts(.:format)                            posts#index
                          POST   /posts(.:format)                            posts#create
                 new_post GET    /posts/new(.:format)                        posts#new

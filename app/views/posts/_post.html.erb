@@ -25,7 +25,11 @@
         </div>
         <div class="comment-like-form row">
           <div class="col-sm-1">
-            <%= link_to '', like_post_path(post.id), remote: true, id: "like#{post.id}", class: "glyphicon glyphicon-heart-empty" %>
+            <% if current_user.voted_for? post %>
+              <%= link_to '', unlike_post_path(post.id), id: "unlike#{post.id}", class: "glyphicon #{liked_post post}" %>
+            <% else %>
+              <%= link_to '', like_post_path(post.id), id: "like#{post.id}", class: "glyphicon #{liked_post post}" %>
+            <% end %>
           </div>
           <div class="comment-form col-sm-11">
             <%= form_for [post, post.comments.build] do |f| %>
