@@ -58,6 +58,11 @@ group :development, :test do
   gem 'rspec-rails', "~> 2.14"
 end
 
+group :production do
+  gem 'pg', '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
+
 group :test do
   gem 'capybara', "2.1.0"
 end
